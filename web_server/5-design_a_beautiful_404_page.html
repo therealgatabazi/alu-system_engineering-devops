@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Not Found</title>
+	<style type="text/css">
+		body {
+			background-color: #58d2db3e;
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			color: #444;
+			text-align: center;
+			margin-top: 50px;
+			font-size: 48px;
+			text-shadow: 2px 2px #ccc;
+		}
+		p {
+			color: #777;
+			text-align: center;
+			margin-top: 20px;
+			font-size: 24px;
+		}
+		a {
+			color: rgb(61, 69, 13);
+			text-decoration: none;
+            position:relative; 
+            display:inline-block; 
+            padding:.5rem 1rem; 
+            border-radius:.25rem; 
+            text-decoration:none
+        }
+        a:hover {
+            text-decoration:none
+        }
+        a::before {
+            content:""; 
+            position:absolute; 
+            top:-2px; 
+            left:-2px; 
+            right:-2px; 
+            bottom:-2px; 
+            z-index:-1
+        }
+        a::before {
+            background-color:rgb(254, 253, 253); 
+            transform-origin:left top; 
+            transform:scale(0); 
+            transition:.3s ease-out
+        }
+        a:hover::before {
+            transform-origin:left top; 
+            transform:scale(1)
+        }
+        .container {
+            display:flex; 
+            justify-content:center; 
+            align-items:center; 
+            height:100vh; 
+            flex-direction:column
+        }
+        .image-container img{
+            width:auto; 
+            height:auto; 
+            max-width:100%; 
+            max-height:100%;
+	        opacity:0;
+	        transition-duration:.5s
+        }
+	    .image-container img.fade-in{
+	        opacity:1
+	    }
+    </style>
+</head>
+<body>
+    <div class="container">
+	    <h1>Page Not Found</h1>
+	    <p>The page you are looking for could not be found.</p>
+        <div class="image-container">
+	        <img src="https://www.example.com/images/404-image.jpg" alt="404 image" onload="this.classList.add('fade-in')">
+        </div>
+        <a href="/" class="button">Go back home</a>
+    </div>
+
+    <script type="text/javascript">
+    	var image = document.querySelector('.image-container img');
+    	image.addEventListener('load', function() {
+    		image.classList.add('fade-in');
+    	});
+    </script>
+</body>
+</html>
